@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+    <configdata>
+        <config class="com.nemo.game.config.model.MapConfig" file="cfg_map" key="id" desc="AOI场景配置表"/>
+
+    </configdata>
+
+    <configcaches>
+
+    </configcaches>
+</configs>
