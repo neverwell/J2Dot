@@ -1,0 +1,3 @@
+游戏服配置 config.properties   
+
+跨服地图服配置 mapconfig.properties
