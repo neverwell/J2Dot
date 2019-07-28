@@ -20,6 +20,8 @@ public class GameBootstrap {
         } else {
             //getResource("/")是class的根目录下去找  getResource("")是GameBootstrap的class文件同级目录下去找
             configPath = GameBootstrap.class.getResource("/").getPath() + "config.properties";
+
+//            configPath = GameBootstrap.class.getClassLoader().getResource("conf").getPath() + "/config.properties";
         }
         LOGGER.info("----------------configPath {} -------------------", configPath);
 
