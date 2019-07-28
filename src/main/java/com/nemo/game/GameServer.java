@@ -69,7 +69,9 @@ public class GameServer {
         //初始化配置表
         ConfigDataManager.getInstance().init(option.getConfigDataPath());
         //初始化日志服务
-        ConnectionPool connectionPool = new DruidConnectionPool(option.getLogDBConfigPath());
+        String logDbPro = DruidConnectionPool.class.getClassLoader().getResource("conf").getPath() + "/logds.properties";
+//        ConnectionPool connectionPool = new DruidConnectionPool(option.getLogDBConfigPath());
+        ConnectionPool connectionPool = new DruidConnectionPool(logDbPro);
         JdbcTemplate template = new JdbcTemplate(connectionPool);
         LogService.addConsumer(new MysqlLogConsumer(template));
         //LogService.addConsumer(new TextLogConsumer());

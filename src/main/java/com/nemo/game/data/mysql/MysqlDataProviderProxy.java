@@ -38,6 +38,10 @@ public class MysqlDataProviderProxy implements IDataProvider{
 
     public MysqlDataProviderProxy(ServerOption option) throws Exception {
         String gameDbConfigPath = option.getGameDbConfigPath();
+
+        gameDbConfigPath = MysqlDataProviderProxy.class.getClassLoader().getResource("conf").getPath() + "/gameds.properties";
+
+
         //创建数据库连接池
         ConnectionPool connectionPool = new DruidConnectionPool(gameDbConfigPath);
         //创建JDBC模板

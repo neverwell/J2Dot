@@ -62,13 +62,9 @@ public class ConfigDataContainer<T extends IConfigData> {
 
     public void load(String filePath) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         String file = filePath + this.fileName + ".csv";
-        CSVData data = CSVUtil.read(file, 3);
 
-        //直接读resource下的data
-        if(data == null) {
-            file = ConfigDataContainer.class.getClassLoader().getResource("data").getPath() + "/" + this.fileName + ".csv";
-            data = CSVUtil.read(file, 3);
-        }
+        file = ConfigDataContainer.class.getClassLoader().getResource("data").getPath() + "/" + this.fileName + ".csv";
+        CSVData data = CSVUtil.read(file, 3);
 
         List<T> list = new ArrayList<>();
         //遍历每一行的数据

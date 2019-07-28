@@ -5,12 +5,14 @@ import com.nemo.game.entity.User;
 import com.nemo.net.Message;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.net.InetSocketAddress;
 
 //包装了Channel 表示一个连接
-@Data
+@Getter
+@Setter
 public class Session {
     private Channel channel;
 
