@@ -4,6 +4,7 @@ package com.nemo.test;
 import com.nemo.commons.util.Cast;
 import com.nemo.concurrent.QueueExecutor;
 
+import java.lang.ref.WeakReference;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -11,6 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Main {
     public static final QueueExecutor EXECUTOR = new QueueExecutor("场景公共驱动线程",100,100);
@@ -79,6 +81,9 @@ public class Main {
 
         System.out.println("test4: " + rankMap.get(2).getRank());
     }
+
+    private static Mutex mutex = new Mutex();
+    private volatile static int ret;
 
     public static void main(String[] args) throws Exception{
 //        double a = 100;
@@ -216,11 +221,110 @@ public class Main {
 //        System.out.println(c);
 //        System.out.println(12 / 4 * 6);
 
-        Set<String> set = new HashSet<>();
-        set.add("1#1");
-        set.add("1#2");
-        System.out.println(set.contains("1#1"));
+//        Set<String> set = new HashSet<>();
+//        set.add("1#1");
+//        set.add("1#2");
+//        System.out.println(set.contains("1#1"));
+
+//        for(int i = 0; i < 1000000; i++) {
+//            new Thread(() -> addRet()).start();
+//        }
+
+//        Thread t = new Thread(() -> {
+//            try {
+//                while (true) {
+//                    Thread.sleep(10000);
+//                }
+//            } catch (InterruptedException ie) {
+//                System.out.println("由于产生InterruptedException异常，退出while(true)循环，线程终止！");
+//            }
+//        });
+//        t.start();
+//
+//        Thread.sleep(5000);
+//        t.interrupt();
+
+//        int x, y;
+//        x = 1;
+//        try {
+//            x = 2;
+//            y = 0 / 0;
+//        } catch (Exception e) {
+//
+//        } finally {
+//            System.out.println("x = " + x);
+//        }
+
+//        WeakReference<String> wsr = new WeakReference<>(new String("wsr"));
+//        String sr = "sr";
+//
+//        System.out.println(wsr.get());
+//        System.out.println(sr);
+//        System.gc();                //通知JVM的gc进行垃圾回收
+//
+////        Thread.sleep(10000);
+//        System.out.println(wsr.get());
+//        System.out.println(sr);
+
+//        add.get();
+//
+//        for(int i = 0; i <= 100; i++) {
+//            add.set(i);
+//        }
+//        System.out.println(add.get());
+//
+//        new Thread(() -> {
+//            System.out.println(add.get());
+//        }).start();
+
+//        ReentrantLock lock = new ReentrantLock();
+//
+//        for(int i = 0; i < 10; i++) {
+//            new Thread(() -> {
+//                lock.lock();
+////                lock.lock();
+//                for(int j = 0; j < 1000; j++) {
+//                    ret ++;
+//                }
+//                lock.unlock();
+//            }).start();
+//        }
+//        Thread.sleep(6000);
+//        System.out.println(ret);
+
+        int a = 4;
+        Integer b = a;
+
+
+        int[] as = new int[3];
+        Integer[] bs = new Integer[3];
+        Object[] os = new Object[2];
+//        Object[] os = (Object[])as;
+        System.out.println(as.getClass());
+        System.out.println(bs.getClass());
+        System.out.println(os.getClass());
+
+        Object object = new int[5];
     }
+
+    static ThreadLocal<Integer> add = new ThreadLocal<Integer>() {
+        @Override
+        protected Integer initialValue() {
+            return 0;
+        }
+    };
+
+
+
+    private static void addRet() {
+        if(mutex.tryLock()) {
+            mutex.lock();
+            ret++;
+            mutex.unlock();
+            System.out.println(ret);
+        }
+    }
+
 
     public static int dayZeroSecondsFromNow() {
         return (int) (dayZeroMillsFromNow() / 1000L);
