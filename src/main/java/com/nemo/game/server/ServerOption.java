@@ -27,8 +27,8 @@ public class ServerOption {
     public static final String OPEN_TIME = "openTime";
     public static final String COMBINE_TIME = "combineTime";
     public static final String GAME_DB_CONFIG_PATH = "gameDbConfigPath";
-    public static final String LOG_DB_CONFIG_PATH = "logDBConfigPath";
-    public static final String HTTP_DB_CONFIG_PATH = "httpDBConfigPath";
+    public static final String LOG_DB_CONFIG_PATH = "logDbConfigPath";
+    public static final String HTTP_DB_CONFIG_PATH = "httpDbConfigPath";
     public static final String PLATFORM_API = "platformAPI";
     public static final String CENTER_API = "centerAPI";
     public static final String DEBUG = "debug";
