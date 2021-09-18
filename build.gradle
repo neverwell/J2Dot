@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.1.6'
+    id 'org.jetbrains.intellij' version '1.1'
 }
 
 group 'com.neverwell'
@@ -8,19 +8,12 @@ version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
-allprojects {
-    repositories {
-        maven {
-            url 'https://maven.aliyun.com/repository/public/'
-        }
-        mavenLocal()
-        mavenCentral()
-    }
+repositories {
+    mavenCentral()
 }
 
-
 dependencies {
-
+    compile 'org.freemarker:freemarker:2.3.14'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
@@ -28,11 +21,11 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version = '2018.3'
-    updateSinceUntilBuild = false
+    updateSinceUntilBuild=false
 }
 patchPluginXml {
     changeNotes = """
-     v1.0.<br>
+      v1.0.<br>
       <em>这是第一次发布</em>"""
 }
 test {

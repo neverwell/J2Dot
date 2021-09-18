@@ -1,11 +1,10 @@
 <idea-plugin>
     <id>com.neverwell.J2Dot</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
-
+    <name>J2Dot</name>
+    <vendor email="292519287@qq.com" url="http://www.neverwell.com">neverwell</vendor>
+    <idea-version since-build="171.0"/>
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    This project is used for generating an AST for a given Java program. The AST will be stored in .dot format and can be simply visulized by several online tools.
     ]]></description>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
