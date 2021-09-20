@@ -4,8 +4,25 @@
     <vendor email="292519287@qq.com" url="http://www.neverwell.com">neverwell</vendor>
     <idea-version since-build="171.0"/>
     <description><![CDATA[
-    This project is used for generating an AST for a given Java program. The AST will be stored in .dot format and can be simply visulized by several online tools.
+    <p>An idea plug-in that helps us generae an AST for a given Java program source code. The AST will be stored in .dot format and can be simply visulized by several online tools.It also convert .dot and the Java source code associated with them into Markdown notes</p>
+         <ol>
+           <li>1. Read the code and take the AST</li>
+           <li>2. Intuitively observe AST through .dot</li/>
+           <li>3. Generate markdown notes with one click</li>
+         </ol>
+       <p>这是一款可以将给定的java源码生成AST树，并将AST树以.dot文件展示的的插件。它还支持将.dot图片和它相关联的源码生成markdown文档</p>
+         <ol>
+           <li> 1. 阅读源码并生成AST</li>
+           <li> 2. 通过.dot文件直观的查看AST</li/>
+           <li> 3. 一键生成Markdown笔记文章</li>
     ]]></description>
+
+    <change-notes><![CDATA[
+      <ol>
+       <li> V1.0 release.</li>
+     </ol>
+    ]]>
+    </change-notes>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
@@ -17,5 +34,10 @@
 
     <actions>
         <!-- Add your actions here -->
+        <action id="PopupAction_ID" class="com.neverwell.markbook.action.PopupAction" text="Mark"
+                description="Add a note">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
+        </action>
     </actions>
 </idea-plugin>
