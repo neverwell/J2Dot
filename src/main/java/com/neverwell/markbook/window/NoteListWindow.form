@@ -21,7 +21,8 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="  title"/>
+              <icon value="img/title.png"/>
+              <text value=" DocName"/>
             </properties>
           </component>
           <component id="e564d" class="javax.swing.JTextField" binding="topic">
@@ -59,19 +60,22 @@
           <component id="49492" class="javax.swing.JButton" binding="createButton" default-binding="true">
             <constraints/>
             <properties>
-              <text value="create"/>
+              <icon value="img/build.png"/>
+              <text value="Generate"/>
             </properties>
           </component>
           <component id="c6fea" class="javax.swing.JButton" binding="clearButton" default-binding="true">
             <constraints/>
             <properties>
+              <icon value="img/clear.png"/>
               <text value="clear"/>
             </properties>
           </component>
           <component id="26b56" class="javax.swing.JButton" binding="closeButton" default-binding="true">
             <constraints/>
             <properties>
-              <text value="close"/>
+              <icon value="img/close.png"/>
+              <text value="Close"/>
             </properties>
           </component>
         </children>

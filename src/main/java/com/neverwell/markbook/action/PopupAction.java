@@ -7,7 +7,7 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 import com.neverwell.markbook.data.DataCenter;
-import com.neverwell.markbook.dialog.NoteDialog;
+import com.neverwell.markbook.dialog.NoteDialogComplex;
 
 public class PopupAction extends AnAction {
 
@@ -20,10 +20,10 @@ public class PopupAction extends AnAction {
         DataCenter.SELECT_TEXT = selectedText;
         String name = e.getRequiredData(CommonDataKeys.PSI_FILE).getViewProvider().getVirtualFile().getName();
         DataCenter.FILE_NAME = name;
-        //NoteDialog dialog = new NoteDialog(project);
-        //dialog.open();
-        NoteDialog dialog = new NoteDialog();
-        dialog.show();
+        NoteDialogComplex dialogComplex = new NoteDialogComplex(project);
+        dialogComplex.open();
+        //NoteDialog dialog = new NoteDialog();
+        //dialog.show();
 
     }
 }

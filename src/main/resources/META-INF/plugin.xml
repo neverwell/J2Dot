@@ -30,6 +30,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <toolWindow factoryClass="com.neverwell.markbook.window.NoteListWindowFactory" id="MarkBook" icon="/img/logo.png"
+                    anchor="right"/>
     </extensions>
 
     <actions>
