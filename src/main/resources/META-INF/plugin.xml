@@ -37,7 +37,7 @@
     <actions>
         <!-- Add your actions here -->
         <action id="PopupAction_ID" class="com.neverwell.markbook.action.PopupAction" text="Mark"
-                description="Add a note">
+                description="Add a note" icon="/img/mark.png">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl I"/>
         </action>
